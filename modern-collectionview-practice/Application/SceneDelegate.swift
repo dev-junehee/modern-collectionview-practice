@@ -21,8 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         
         let settingVC = UINavigationController(rootViewController: SettingViewController())
+        let travelVC = UINavigationController(rootViewController: TalkViewController())
         
-        window?.rootViewController = settingVC
+        window?.rootViewController = travelVC
         window?.makeKeyAndVisible()
     }
 

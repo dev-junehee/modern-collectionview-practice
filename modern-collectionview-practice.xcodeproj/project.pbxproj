@@ -13,6 +13,7 @@
 		C4E459E62C4A2773006CCBF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4E459E52C4A2773006CCBF0 /* Assets.xcassets */; };
 		C4E459E92C4A2773006CCBF0 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = C4E459E82C4A2773006CCBF0 /* Base */; };
 		C4E459F62C4A2D1F006CCBF0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C4E459F52C4A2D1F006CCBF0 /* SnapKit */; };
+		C4E459FB2C4BC888006CCBF0 /* TalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E459FA2C4BC888006CCBF0 /* TalkViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C4E459E82C4A2773006CCBF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4E459EA2C4A2773006CCBF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4E459F32C4A29A2006CCBF0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C4E459FA2C4BC888006CCBF0 /* TalkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +81,7 @@
 		C4E459F12C4A2897006CCBF0 /* Presentaion */ = {
 			isa = PBXGroup;
 			children = (
-				C4E459F72C4BC337006CCBF0 /* Travel */,
+				C4E459F72C4BC337006CCBF0 /* Talk */,
 				C4E459F22C4A28A4006CCBF0 /* Setting */,
 			);
 			path = Presentaion;
@@ -93,11 +95,12 @@
 			path = Setting;
 			sourceTree = "<group>";
 		};
-		C4E459F72C4BC337006CCBF0 /* Travel */ = {
+		C4E459F72C4BC337006CCBF0 /* Talk */ = {
 			isa = PBXGroup;
 			children = (
+				C4E459FA2C4BC888006CCBF0 /* TalkViewController.swift */,
 			);
-			path = Travel;
+			path = Talk;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +181,7 @@
 			files = (
 				C4E459E12C4A2771006CCBF0 /* SettingViewController.swift in Sources */,
 				C4E459DD2C4A2771006CCBF0 /* AppDelegate.swift in Sources */,
+				C4E459FB2C4BC888006CCBF0 /* TalkViewController.swift in Sources */,
 				C4E459DF2C4A2771006CCBF0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
