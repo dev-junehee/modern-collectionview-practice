@@ -8,8 +8,10 @@
 import UIKit
 import SnapKit
 
-struct Menu: Hashable {
+struct Menu: Hashable, Identifiable {
+    let id = UUID()
     let title: String
+    let icon: String
 }
 
 final class SettingViewController: UIViewController {
@@ -21,15 +23,15 @@ final class SettingViewController: UIViewController {
     }
     
     let menuList: [[Menu]] = [
-        [Menu(title: "공지사항"), Menu(title: "실험실"), Menu(title: "버전 정보")],
-        [Menu(title: "개인/보안"), Menu(title: "알림"), Menu(title: "채팅")],
-        [Menu(title: "고객센터/도움말")]
+        [Menu(title: "공지사항", icon: "checklist.unchecked"), Menu(title: "실험실", icon: "cursorarrow.motionlines.click"), Menu(title: "버전 정보", icon: "exclamationmark.triangle")],
+        [Menu(title: "개인/보안", icon: "shield.righthalf.filled"), Menu(title: "알림", icon: "note"), Menu(title: "채팅", icon: "message")],
+        [Menu(title: "고객센터/도움말", icon: "questionmark.circle")]
     ]
 
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout())
     
     private func layout() -> UICollectionViewLayout {
-        var configuration = UICollectionLayoutListConfiguration(appearance: .plain)
+        var configuration = UICollectionLayoutListConfiguration(appearance: .grouped)
         configuration.backgroundColor = .white
         configuration.showsSeparators = true
         
@@ -64,9 +66,12 @@ final class SettingViewController: UIViewController {
         registration = UICollectionView.CellRegistration { cell, indexPath, itemIdentifier in
             var content = UIListContentConfiguration.valueCell()
             content.text = itemIdentifier.title
-            
-            
+            content.image = UIImage(systemName: itemIdentifier.icon)
+            content.imageProperties.tintColor = .red
+            content.imageProperties.reservedLayoutSize = CGSize(width: 10, height: 10)
+            cell.indentationLevel = 1
             cell.contentConfiguration = content
+            
         }
         
         dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in

@@ -79,6 +79,7 @@
 		C4E459F12C4A2897006CCBF0 /* Presentaion */ = {
 			isa = PBXGroup;
 			children = (
+				C4E459F72C4BC337006CCBF0 /* Travel */,
 				C4E459F22C4A28A4006CCBF0 /* Setting */,
 			);
 			path = Presentaion;
@@ -90,6 +91,13 @@
 				C4E459E02C4A2771006CCBF0 /* SettingViewController.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		C4E459F72C4BC337006CCBF0 /* Travel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Travel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
