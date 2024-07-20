@@ -73,9 +73,19 @@ final class TalkViewController: UIViewController {
         registraiton = UICollectionView.CellRegistration(handler: { cell, indexPath, itemIdentifier in
             var content = UIListContentConfiguration.valueCell()
             content.image = UIImage(named: itemIdentifier.profileImage)
-            content.imageProperties.reservedLayoutSize = CGSize(width: 20, height: 20)
+            content.imageProperties.reservedLayoutSize = CGSize(width: 50, height: 50)
+            
             content.text = itemIdentifier.name
-            content.secondaryText = itemIdentifier.date
+            content.textProperties.font = .boldSystemFont(ofSize: 16)
+            
+            // 날짜 위치
+//            content.secondaryText = itemIdentifier.date
+//            content.secondaryTextProperties.font = .systemFont(ofSize: 12, weight: .light)
+            
+            // 메세지 위치
+            content.secondaryText = itemIdentifier.message
+            content.secondaryTextProperties.font = .systemFont(ofSize: 12, weight: .light)
+            content.prefersSideBySideTextAndSecondaryText = false // SecondaryText 위치 변경
             
             cell.contentConfiguration = content
         })
