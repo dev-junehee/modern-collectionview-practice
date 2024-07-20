@@ -16,7 +16,7 @@ struct Talk: Hashable, Identifiable {
 }
 
 final class TalkViewController: UIViewController {
-    
+     
     enum Section: CaseIterable {
         case all
     }
@@ -40,10 +40,15 @@ final class TalkViewController: UIViewController {
         Talk(profileImage: "02", name: "Jack", message: "깃허브 푸시하셨나여?", date: "24.01.12"),
     ]
     
+    private var filteredList: [Talk]? = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        filteredList = talkList
+        
         setViewController()
+        setSearchBar()
         configureDataSource()
         updateSnapShot()
     }
@@ -59,8 +64,6 @@ final class TalkViewController: UIViewController {
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(8)
             $0.height.equalTo(44)
         }
-        searchBar.searchBarStyle = .minimal
-        searchBar.placeholder = "친구 이름을 검색해 보세요~!"
         
         collectionView.snp.makeConstraints {
             $0.top.equalTo(searchBar.snp.bottom).offset(8)
@@ -97,10 +100,23 @@ final class TalkViewController: UIViewController {
     }
     
     private func updateSnapShot() {
+        guard let filteredList = filteredList else { return }
+        
         var snapShot = NSDiffableDataSourceSnapshot<Section, Talk>()
         snapShot.appendSections(Section.allCases)
-        snapShot.appendItems(talkList, toSection: .all)
+        snapShot.appendItems(filteredList, toSection: .all)
         dataSource.apply(snapShot)
     }
     
+    private func setSearchBar() {
+        searchBar.searchBarStyle = .minimal
+        searchBar.placeholder = "친구 이름을 검색해 보세요~!"
+        searchBar.delegate = self
+    }
+}
+
+extension TalkViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+    }
 }
